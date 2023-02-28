@@ -1,0 +1,6 @@
+development:
+  adapter:  "sqlserver"
+  host:     "4567"
+  username: "nishino"
+  password: "password"
+  database: "sqlserver"

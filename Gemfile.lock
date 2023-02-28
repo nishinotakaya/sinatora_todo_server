@@ -1,0 +1,47 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activemodel (3.1.12)
+      activesupport (= 3.1.12)
+      builder (~> 3.0.0)
+      i18n (~> 0.6)
+    activerecord (3.1.12)
+      activemodel (= 3.1.12)
+      activesupport (= 3.1.12)
+      arel (~> 2.2.3)
+      tzinfo (~> 0.3.29)
+    activerecord-sqlserver-adapter (3.1.7)
+      activerecord (~> 3.1.0)
+    activesupport (3.1.12)
+      multi_json (~> 1.0)
+    arel (2.2.3)
+    builder (3.0.4)
+    concurrent-ruby (1.2.2)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
+    multi_json (1.15.0)
+    mustermann (3.0.0)
+      ruby2_keywords (~> 0.0.1)
+    rack (2.2.5)
+    rack-protection (3.0.5)
+      rack
+    ruby2_keywords (0.0.5)
+    sinatra (3.0.5)
+      mustermann (~> 3.0)
+      rack (~> 2.2, >= 2.2.4)
+      rack-protection (= 3.0.5)
+      tilt (~> 2.0)
+    tilt (2.0.11)
+    tiny_tds (2.1.5)
+    tzinfo (0.3.61)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activerecord-sqlserver-adapter (~> 3.1.0)
+  sinatra
+  tiny_tds
+
+BUNDLED WITH
+   1.17.2
