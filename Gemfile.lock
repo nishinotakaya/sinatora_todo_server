@@ -31,6 +31,12 @@ GEM
       rack (~> 2.2, >= 2.2.4)
       rack-protection (= 3.0.5)
       tilt (~> 2.0)
+    sinatra-contrib (3.0.5)
+      multi_json
+      mustermann (~> 3.0)
+      rack-protection (= 3.0.5)
+      sinatra (= 3.0.5)
+      tilt (~> 2.0)
     tilt (2.0.11)
     tiny_tds (2.1.5)
     tzinfo (0.3.61)
@@ -41,6 +47,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-sqlserver-adapter (~> 3.1.0)
   sinatra
+  sinatra-contrib (~> 3.0, >= 3.0.5)
   tiny_tds
 
 BUNDLED WITH
