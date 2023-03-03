@@ -17,6 +17,8 @@ GEM
     arel (2.2.3)
     builder (3.0.4)
     concurrent-ruby (1.2.2)
+    cors (1.0.1)
+      multi_json
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     multi_json (1.15.0)
@@ -46,6 +48,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-sqlserver-adapter (~> 3.1.0)
+  cors
   sinatra
   sinatra-contrib (~> 3.0, >= 3.0.5)
   tiny_tds
