@@ -1,0 +1,8 @@
+current directory: /Users/user/sinatra_todo/sinatora_practice/vendor/bundle/ruby/2.6.0/gems/ruby-debug-ide-0.7.3/ext
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby mkrf_conf.rb
+Installing base gem
+Building native extensions. This could take a while...
+Building native extensions. This could take a while...
+
+current directory: /Users/user/sinatra_todo/sinatora_practice/vendor/bundle/ruby/2.6.0/gems/ruby-debug-ide-0.7.3/ext
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/bin/ruby -rrubygems /Users/user/sinatra_todo/sinatora_practice/vendor/bundle/ruby/2.6.0/gems/rake-13.0.6/exe/rake RUBYARCHDIR\=/Users/user/sinatra_todo/sinatora_practice/vendor/bundle/ruby/2.6.0/extensions/universal-darwin-21/2.6.0/ruby-debug-ide-0.7.3 RUBYLIBDIR\=/Users/user/sinatra_todo/sinatora_practice/vendor/bundle/ruby/2.6.0/extensions/universal-darwin-21/2.6.0/ruby-debug-ide-0.7.3
