@@ -31,7 +31,7 @@ set :database, {adapter: "sqlite3", database: "db/my_database.sqlite3"}
 
   class Todo < ActiveRecord::Base
   end
-  
+
   todos = []
 
   get '/todos' do
@@ -48,12 +48,16 @@ set :database, {adapter: "sqlite3", database: "db/my_database.sqlite3"}
   end
 
   put '/todos/:id' do |id|
-    todo = todos.find { |t| t[:id] == id.to_i }
+    todo = Todo.find(id)
     request.body.rewind
     data = JSON.parse request.body.read
-    todo[:task] = data['task'] if data['task']
-    todo[:isCompleted] = data['isCompleted'] if data['isCompleted']
-    { message: 'Todo updated successfully.' }.to_json
+    todo.title = data['title'] if data['title']
+    todo.completed = data['isCompleted'] if data['isCompleted']
+    if todo.save
+      { message: 'Todo updated successfully.' }.to_json
+    else
+      { error: 'Failed to update todo.' }.to_json
+    end
   end
 
   delete '/todos/:id' do |id|
