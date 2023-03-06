@@ -44,11 +44,14 @@ set :database, {adapter: "sqlite3", database: "db/my_database.sqlite3"}
     todo = Todo.find(id)
     request.body.rewind
     data = JSON.parse request.body.read
+    puts data # 追加: 送信されたデータを確認する
     todo.title = data['title'] if data['title']
-    todo.completed = data['isCompleted'] if data['isCompleted']
+    todo.completed = data['completed'] if data.has_key?('completed')
     if todo.save
+      puts todo.completed
       { message: 'Todo updated successfully.' }.to_json
     else
+      puts todo.errors.full_messages # 追加: エラーを確認する
       { error: 'Failed to update todo.' }.to_json
     end
   end
