@@ -3,6 +3,9 @@ require 'json'
 require 'sinatra/contrib'
 require 'cors'
 require 'sinatra/reloader'
+require 'sinatra/activerecord'
+
+set :database, {adapter: "sqlite3", database: "db/my_database.sqlite3"}
 
   configure do
     register Sinatra::Reloader
@@ -24,17 +27,24 @@ require 'sinatra/reloader'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
   end
 
+  set :database, {adapter: "sqlite3", database: "db/my_database.sqlite3"}
+
+  class Todo < ActiveRecord::Base
+  end
+  
   todos = []
 
   get '/todos' do
+    todos = Todo.all
     todos.to_json
   end
 
   post '/todos' do
     request.body.rewind
     data = JSON.parse request.body.read
-    todos << { id: todos.length + 1, task: data['task'], isCompleted: false }
-    { message: 'Todo created successfully.' }.to_json
+    new_todo = Todo.create(title: data['task'], completed: false)
+    todos = new_todo
+    new_todo.to_json
   end
 
   put '/todos/:id' do |id|
@@ -47,6 +57,10 @@ require 'sinatra/reloader'
   end
 
   delete '/todos/:id' do |id|
-    todos.reject! { |t| t[:id] == id.to_i }
-    { message: 'Todo deleted successfully.' }.to_json
+    todo = Todo.find(id)
+    if todo.destroy
+      { message: 'Todo deleted successfully.' }.to_json
+    else
+      { error: 'Failed to delete todo.' }.to_json
+    end
   end
