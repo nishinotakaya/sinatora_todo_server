@@ -1,0 +1,138 @@
+find_header: checking for sybfront.h... -------------------- yes
+
+"clang -o conftest -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin21 -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/opt/local/include -I/opt/local/include/freetds -I/usr/local/include -I/usr/local/include/freetds -I/Users/user/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -g -O2 -fno-common -pipe conftest.c  -L. -L/Users/user/.rbenv/versions/2.7.4/lib -L/opt/local/lib -L/opt/local/lib/freetds -L/usr/local/lib -L/usr/local/lib/freetds -L. -L/Users/user/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib     -lruby.2.7   "
+ld: warning: directory not found for option '-L/opt/local/lib'
+ld: warning: directory not found for option '-L/opt/local/lib/freetds'
+ld: warning: directory not found for option '-L/usr/local/lib/freetds'
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return !!argv[argc];
+6: }
+/* end */
+
+"clang -E -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin21 -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/opt/local/include -I/opt/local/include/freetds -I/usr/local/include -I/usr/local/include/freetds -I/Users/user/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -g -O2 -fno-common -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sybfront.h>
+/* end */
+
+--------------------
+
+find_header: checking for sybdb.h... -------------------- yes
+
+"clang -E -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin21 -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/opt/local/include -I/opt/local/include/freetds -I/usr/local/include -I/usr/local/include/freetds -I/Users/user/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -g -O2 -fno-common -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sybdb.h>
+/* end */
+
+--------------------
+
+find_library: checking for tdsdbopen() in -lsybdb... -------------------- yes
+
+"clang -o conftest -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin21 -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/opt/local/include -I/opt/local/include/freetds -I/usr/local/include -I/usr/local/include/freetds -I/Users/user/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -g -O2 -fno-common -pipe conftest.c  -L. -L/Users/user/.rbenv/versions/2.7.4/lib -L/opt/local/lib -L/opt/local/lib/freetds -L/usr/local/lib -L/usr/local/lib/freetds -L. -L/Users/user/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib     -lruby.2.7 -lsybdb   "
+conftest.c:14:57: error: use of undeclared identifier 'tdsdbopen'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))tdsdbopen; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))tdsdbopen; return !p; }
+/* end */
+
+"clang -o conftest -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin21 -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/opt/local/include -I/opt/local/include/freetds -I/usr/local/include -I/usr/local/include/freetds -I/Users/user/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -g -O2 -fno-common -pipe conftest.c  -L. -L/Users/user/.rbenv/versions/2.7.4/lib -L/opt/local/lib -L/opt/local/lib/freetds -L/usr/local/lib -L/usr/local/lib/freetds -L. -L/Users/user/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib     -lruby.2.7 -lsybdb   "
+ld: warning: directory not found for option '-L/opt/local/lib'
+ld: warning: directory not found for option '-L/opt/local/lib/freetds'
+ld: warning: directory not found for option '-L/usr/local/lib/freetds'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void tdsdbopen();
+15: int t(void) { tdsdbopen(); return 0; }
+/* end */
+
+--------------------
+
+find_library: checking for dbanydatecrack() in -lsybdb... -------------------- yes
+
+"clang -o conftest -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin21 -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/opt/local/include -I/opt/local/include/freetds -I/usr/local/include -I/usr/local/include/freetds -I/Users/user/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -g -O2 -fno-common -pipe conftest.c  -L. -L/Users/user/.rbenv/versions/2.7.4/lib -L/opt/local/lib -L/opt/local/lib/freetds -L/usr/local/lib -L/usr/local/lib/freetds -L. -L/Users/user/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib    -lsybdb  -lruby.2.7 -lsybdb -lsybdb   "
+conftest.c:14:57: error: use of undeclared identifier 'dbanydatecrack'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))dbanydatecrack; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: int t(void) { void ((*volatile p)()); p = (void ((*)()))dbanydatecrack; return !p; }
+/* end */
+
+"clang -o conftest -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0/x86_64-darwin21 -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0/ruby/backward -I/Users/user/.rbenv/versions/2.7.4/include/ruby-2.7.0 -I. -I/opt/local/include -I/opt/local/include/freetds -I/usr/local/include -I/usr/local/include/freetds -I/Users/user/.rbenv/versions/2.7.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -g -O2 -fno-common -pipe conftest.c  -L. -L/Users/user/.rbenv/versions/2.7.4/lib -L/opt/local/lib -L/opt/local/lib/freetds -L/usr/local/lib -L/usr/local/lib/freetds -L. -L/Users/user/.rbenv/versions/2.7.4/lib  -fstack-protector-strong -L/usr/local/lib    -lsybdb  -lruby.2.7 -lsybdb -lsybdb   "
+ld: warning: directory not found for option '-L/opt/local/lib'
+ld: warning: directory not found for option '-L/opt/local/lib/freetds'
+ld: warning: directory not found for option '-L/usr/local/lib/freetds'
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     int (* volatile tp)(void)=(int (*)(void))&t;
+ 9:     printf("%d", (*tp)());
+10:   }
+11: 
+12:   return !!argv[argc];
+13: }
+14: extern void dbanydatecrack();
+15: int t(void) { dbanydatecrack(); return 0; }
+/* end */
+
+--------------------
+
