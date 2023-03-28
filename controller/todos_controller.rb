@@ -20,8 +20,6 @@ set :database, {adapter: "sqlite3", database: "db/my_database.sqlite3"}
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
   end
 
-  set :database, {adapter: "sqlite3", database: "db/my_database.sqlite3"}
-
   class Todo < ActiveRecord::Base
   end
 
